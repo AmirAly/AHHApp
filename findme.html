@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Locate Restaurant</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awsome/font-awesome.css" />
+    <link rel="stylesheet" href="css/jquery.loader.min.css" />
+    <link href="css/sidebar/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbkSt_pCrWS4OxeVx73tABk9Pl28P1_QA">
+    </script>
+</head>
+<body class="noBackground">
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="blackHeader adjustHeader text-center ">
+                <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                <div class="col-md-6 col-sm-8 col-xs-8"><img src="images/logo3.png" /></div>
+                <div class="col-md-3 col-sm-2 col-xs-2"></div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+            </ul>
+        </div>
+        <div id="menuDv"><span class="glyphicon glyphicon-menu-hamburger lightGray"></span></div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid navbar-fixed-top">
+                <div class="row">
+                    <div class="blackHeader adjustHeader text-center ">
+                        <div class="col-md-3 col-sm-2 col-xs-2" id="dvBack" onclick="navigateTo('home.html')"><span class="glyphicon glyphicon-arrow-left largeFont lightGray"></span></div>
+                        <div class="col-md-6 col-sm-8 col-xs-8"><img src="images/logo3.png" /></div>
+                        <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mapContainer text-center" id="mapContainer">
+            </div>
+            <div class="navbar navbar-fixed-bottom text-center">
+                <div class="row">
+                    <!--<div class="col-md-2 col-sm-2 col-xs-2" id="allRestaurantDv"><img class="ind" src="images/ind.png" /></div>
+                    <div onclick="navigateTo('home.html')" class="col-md-4 col-sm-4 col-xs-4 text-right" id="allRestaurantDv"><img class="btnImg" src="images/glass.png" /></div>
+                    <div onclick="navigateTo('resturants.html')" class="col-md-4 col-sm-4 col-xs-4 text-left" id="locationDv"><img class="btnImg" src="images/redmarker.png" /></div>-->
+                    <div class="col-md-3 col-sm-2 col-xs-2"><img class="ind" src="images/ind.png" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-4" id="allRestaurantDv"><img class="btnImg" src="images/glass.png" /></div>
+                    <div onclick="navigateTo('resturants.html')" class="col-md-3 col-sm-4 col-xs-4" id="locationDv"><img class="btnImg" src="images/redmarker.png" /></div>
+                    <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>-->
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/respond.min.js"></script>   
+    <script type="text/javascript" src="js/jquery.loader.min.js"></script>
+    <script type="text/javascript" src="scripts/general.js"></script>
+    <script type="text/javascript" src="scripts/findme.js"></script>
+</body>
+</html>

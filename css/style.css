@@ -1,0 +1,401 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya);
+
+body, html {
+    overflow: hidden;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.half {
+    height:14px !important;
+    width:14px !important;
+    margin-bottom:5px;
+}
+.half2 {
+    height:22px !important;
+    width:22px !important;
+    margin-bottom:10px;
+}
+body {
+    background-color: #333333;
+    font-family: Verdana;
+    color: #b6b6b6;
+    background-image: url('../images/background.JPG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.barImg {
+    width: 100%;
+    max-height: 40px;
+    max-width: 35px;
+}
+
+.noBackground {
+    background-image: none !important;
+}
+
+.btnImg {
+    width: 60%;
+    max-height: 50px;
+    max-width: 45px;
+    margin: 2px;
+}
+
+.dvScroll {
+    height: auto;
+    max-height: 340px;
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+}
+
+.ind {
+    width: 100%;
+    max-height: 50px;
+    height: 50px;
+    max-width: 60px;
+    width: 50px;
+    margin-left: 5px;
+}
+
+.smallFont {
+    font-size: 9px;
+}
+
+.medFont {
+    font-size: 11px;
+}
+
+.largeFont {
+    font-size: 20px;
+}
+
+.restImage {
+    height: 60px;
+}
+
+.redHeader {
+    background-color: #ee1b24;
+    height: 10px;
+}
+
+.redFont {
+    color: #FFBAD2;
+}
+
+.mainBackground {
+    /*background-image: url('../images/logo2.png') !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: initial;*/
+}
+
+.blackHeader {
+    width: 100%;
+    min-height: 70px;
+    background-color: #333333;
+    border-bottom-left-radius: 70% 100%;
+    border-bottom-right-radius: 70% 100%;
+}
+
+    .blackHeader img {
+        max-height: 60px;
+    }
+
+.adjustHeader {
+    padding-top: 10px;
+}
+
+#menuDv {
+    position: fixed;
+    top: 2px;
+    right: 25px;
+    font-size: 15px;
+    z-index: 1050;
+}
+
+.blue {
+    color: #06f;
+}
+
+
+#menuDv, #backDv, #dvBack, #allRestaurantDv, #locationDv, #dvHome, #basic-addon2, #dvUserLocation {
+    cursor: pointer;
+}
+
+
+    .glyphicon-menu-hamburger, #backDv .glyphicon-menu-left {
+        line-height: 2;
+        font-size: 22px;
+    }
+
+.navbar {
+    max-height: 60px !important;
+    height: 60px !important;
+    line-height: 60px;
+}
+
+.navbar-fixed-bottom {
+    background-color: #333333;
+    max-height: 60px !important;
+    height: 60px !important;
+    line-height: 60px;
+}
+
+    .navbar-fixed-bottom .glyphicon {
+        font-size: 40px;
+        line-height: 1.5;
+        color: #ee1b24;
+        cursor: pointer;
+    }
+
+.clear {
+    float: left;
+    width: 100%;
+    height: 30px;
+}
+
+.adjustSplashLogin {
+    top: 25%;
+    position: fixed;
+}
+
+.adjustCopyRights {
+    bottom: 3%;
+    margin-bottom: 0px;
+    position: fixed;
+}
+
+.darkGray {
+    background-color: #242424;
+    padding: 2%;
+}
+
+.gray {
+    background-color: #333333;
+}
+
+.darkGray .glyphicon {
+    font-size: 22px;
+}
+
+.darkGray .rating-stars {
+    cursor: pointer;
+}
+
+.darkGray #imgGreen {
+    float: right;
+}
+
+.activeRed {
+    color: #ee1b24;
+}
+
+.yellow {
+    color: #f0a91d;
+}
+
+.yellowStar {
+    color: #ffb200;
+}
+
+.lightGray {
+    color: #b6b6b6 !important;
+}
+
+.adjustRestaurant {
+    border-bottom: 1px solid #242424;
+    padding: 0%;
+}
+
+.adjustRestaurantInfo {
+    padding: 1% 0% 0%;
+    text-align: left;
+}
+
+.resturantRating {
+    font-size: 13px;
+    line-height: 50px;
+}
+
+.Open {
+    color: #58b656;
+}
+
+.Soon {
+    color: #FF6600;
+}
+
+.NotNow {
+    color: red;
+}
+
+.restaurantDescription {
+    font-style: italic;
+    font-size: 10px;
+}
+
+.restaurantName {
+    font-size: 14px;
+}
+
+#btnFindRestaurant {
+    background-color: #58b656;
+    color: white;
+    font-size: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-height: 25px;
+    line-height: 25px;
+}
+
+.adjustRestaurantProfile {
+    border-bottom: 1px solid #242424;
+    padding: 2%;
+}
+
+.restaurantProfileInfo {
+    padding-bottom: 3%;
+}
+
+.glyphicon-menu-left {
+    line-height: inherit;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+    ul li {
+        color: #242424;
+    }
+
+        ul li span {
+            color: #B6B6B6;
+        }
+
+.green {
+    color: #58b656;
+}
+
+.badge:empty {
+    display: inline-block;
+}
+
+.greenBackgroung {
+    background-color: #58B656;
+}
+
+.yellowBackgroung {
+    background-color: #f0a91d;
+}
+
+.redBackgroung {
+    background-color: #ee1b24;
+}
+
+.statusDv {
+    font-size: 9px;
+    padding-top: 3px;
+}
+
+#page-content-wrapper {
+    overflow: hidden;
+    padding: 0%;
+}
+
+.mapContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+#sidebar-wrapper {
+    background-color: #333333;
+}
+
+.sidebar-nav li {
+    font-size: 18px;
+    /*line-height: 20px;
+    margin-bottom: 30px;*/
+    line-height: 50px;
+    margin-bottom: 2px;
+}
+
+@media(max-width:767px) {
+    .sidebar-nav {
+        width: 100%;
+    }
+
+    #sidebar-wrapper {
+        width: 100%;
+    }
+}
+
+#txtAddReview {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.adjusrReviews {
+    border-left: 3px solid #5bc0de;
+    margin-left: 14px;
+    padding: 0px;
+    margin-bottom: 12px;
+}
+
+.rating-container .rating-stars {
+    color: #f0a91d;
+}
+
+#dvMessage {
+    color: red;
+}
+
+#imgRestaurant, .cursorPointer {
+    cursor: pointer;
+}
+
+.adjustUserInfo {
+    padding-left: 0px;
+}
+
+.adjustUserName {
+    padding-right: 0px;
+    font-weight: bold;
+}
+
+.adjustUserReview {
+    padding-left: 0px;
+    padding-right: 20px;
+    font-size: 11px;
+}
+
+#lnkFindRestaurant {
+    padding: 5px;
+}
+
+.fa-star, .fa-star-o {
+    font-size: 10px !important;
+}
+
+.adjustUserRate {
+    padding-right: 0px;
+}
+
+.fa-street-view {
+    font-size: 40px;
+    /*color: #C72127;*/
+    line-height: 1.6;
+}

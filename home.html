@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awsome/font-awesome.css" />
+    <link href="css/sidebar/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.loader.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-star-rating-master/star-rating.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap-tour.css" />
+    <link rel="stylesheet" href="css/bootstrap-tour.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+</head>
+<body style="overflow:hidden">
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" style="overflow:hidden">
+            <div class="blackHeader adjustHeader text-center ">
+                <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                <div class="col-md-6 col-sm-8 col-xs-8"><img src="images/logo3.png" /></div>
+                <div class="col-md-3 col-sm-2 col-xs-2"></div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+            </ul>
+        </div>
+        <div id="menuDv"><span class="glyphicon glyphicon-menu-hamburger lightGray"></span></div>
+        <div id="page-content-wrapper" style="overflow:hidden">
+            <div class="container-fluid navbar-fixed-top">
+                <div class="row">
+                    <div class="blackHeader adjustHeader text-center ">
+                        <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                        <div class="col-md-6 col-sm-8 col-xs-8"><img src="images/logo3.png" /></div>
+                        <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div id="dvViewImage" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" id="h4RestaurantName"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <img class="img-responsive" id="imgModalRestaurent" src="images/unknown.png" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container dvHome">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center ">
+                    <!--icons div-->
+                    <div class="row darkGray" id="dvSorting">
+                        <div onclick="sortAscendeing('sortable', 'hh-sorting', 'dvSort')" class="col-md-3 col-sm-3 col-xs-3"><img class="barImg" src="images/bill.png" /></div>
+                        <div onclick="sortAscendeing('sortable', 'gps-sorting', 'dvSort')" class="col-md-3 col-sm-3 col-xs-3"><img class="barImg" src="images/greenmarker.png" /></div>
+                        <div onclick="sort('sortable', 'rate-sorting', 'dvSort')" class="col-md-3 col-sm-3 col-xs-3"><img class="barImg" src="images/star.png" /></div>
+                        <div onclick="sort('sortable', 'name-sorting', 'dvSort')" class="col-md-3 col-sm-3 col-xs-3"><img class="barImg" src="images/a2z.png" /></div>
+                    </div>
+                    <div class="row gray dvScroll" id="dvSort">
+
+                    </div>
+                </div>
+            </div>
+            <div class="container dvProfile hidden">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center ">
+                    <!--icons div-->
+                    <div class="row darkGray">
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left glyBack" id="dvHome"><span class="glyphicon glyphicon-menu-left lightGray"></span></div>
+                        <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                        <div class="col-md-3 col-sm-3 col-xs-2"></div>
+                        <div class="col-md-3 col-sm-3 col-xs-4"><img class="img-responsive" id="imgGreen" src="images/red.png" /></div>
+                    </div>
+                    <div class="row gray dvScroll" id="dvSort">
+                        <!--1st part-->
+                        <div class="row gray">
+                            <!--1st part-->
+                            <!--image-->
+                            <div class="col-md-5 col-sm-5 col-xs-5 text-left ">
+                                <img id="imgRestaurant" class="img-responsive" src="images/cafe.jpg" onclick="javascript: $('#dvViewImage').modal('toggle')">
+                                <p class="text-center smallFont">(Tab to enlarge)</p>
+                            </div>
+                            <!--info-->
+                            <div class="col-md-7 col-sm-7 col-xs-7 text-left restaurantName">
+                                <span id="spnRestaurantName" class="largeFont"></span>
+                                <div class="medFont">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <span id="spnRestaurantAddress"></span>
+                                </div>
+                                <a class="medFont" id="lnkWebsite" href="">Bar Website</a>
+
+                                <div class="largeFont" id="dvAvgRate">
+                                    <span id="star1" class="glyphicon glyphicon-star yellow"></span>
+                                    <span id="star2" class="glyphicon glyphicon-star yellow"></span>
+                                    <span id="star3" class="glyphicon glyphicon-star yellow"></span>
+                                    <span id="star4" class="glyphicon glyphicon-star yellow"></span>
+                                    <span id="star5" class="glyphicon glyphicon-star-empty lightGray"></span>
+                                </div>
+                                <a href="#" id="lnkFindRestaurant" class="text-center btn btn-md  btn-success">
+                                    TAKE ME THERE
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="row gray text-left restaurantName " style="padding:7.5%;">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <span id="spnRestaurantAbout">
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <a href="javascript:navigateTo('findme.html')" id="lnkFacebookPage" class="text-center btn btn-info btn-xs">
+                                        <i class="fa fa-thumbs-up"></i> LIKE US
+                                    </a>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <span class="activeRed">Today’s Happy Hours</span>
+                                    <span id="spnHappyHour"></span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div id="dvActions">
+                                <div class="row darkGray">
+                                    <div class="col-md-5 col-sm-5 col-xs-5 text-left largeFont">
+                                        Your rating
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 text-right">
+                                        <input id="rating-input" type="number" />
+                                    </div>
+                                </div>
+                                <div class="row darkGray">
+                                    <div id="dvMessage" class="col-md-12 col-sm-12 col-xs-12 text-center hidden"><span>You have to write a review first</span></div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" id="txtAddReview" name="txtAddReview" class="form-control" placeholder="Leave a review" aria-describedby="basic-addon2">
+                                            <span class="input-group-addon" onclick="addReview()" id="basic-addon2"><i class="fa fa-comment"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row darkGray" id="dvAllReviews">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div class="navbar navbar-fixed-bottom text-center" id="footer">
+                <div class="row">
+                    <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                    <div class="col-md-3 col-sm-4 col-xs-4" id="allRestaurantDv"><img class="btnImg" src="images/glass.png" /></div>
+                    <div onclick="navigateTo('resturants.html')" class="col-md-3 col-sm-4 col-xs-4" id="locationDv"><img class="btnImg" src="images/redmarker.png" /></div>
+                    <div class="col-md-3 col-sm-2 col-xs-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/respond.min.js"></script>
+    <script type="text/javascript" src="js/jquery.loader.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap-star-rating-master/star-rating.min.js"></script>
+    <script type="text/javascript" src="scripts/general.js"></script>
+    <script type="text/javascript" src="scripts/home.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-tour.js"></script>
+    <script type="text/javascript" src="js/bootstrap-tour.min.js"></script>
+</body>
+</html>
