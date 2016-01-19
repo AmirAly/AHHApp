@@ -4,8 +4,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "co.deltacode.ahh"
-        version   = "1.0.3"
-		versionCode="323">
+        version   = "1.0.4"
+		versionCode="324">
 
   <name>Amsterdam Happy Hours</name>
 
