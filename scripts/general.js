@@ -1,5 +1,5 @@
-//var APILink = 'http://localhost:51923/';
-var APILink = 'http://ahhapi.deltacode.co/';
+var APILink = 'http://localhost:51923/';
+//var APILink = 'http://ahhapi.deltacode.co/';
 var hidden = false;
 function navigateTo(_link) {
     location.href = _link;

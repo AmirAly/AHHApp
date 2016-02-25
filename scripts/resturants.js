@@ -37,14 +37,16 @@ function markResturants() {
     var _Data = { '_Index': 1000000, '_limit': 10, '_OrderBy': "Name","_lat":555.2,"_lng":3223.2 }; // AvgRate , Name ,Geolocation
     CallAPI(_Url, _Type, _Data, function (data) {
         if (data.Code == 100) {
+            console.log(data.Data);
             $.each(data.Data, function (index, Restaurants) {
+                
                 var myLatlng = new google.maps.LatLng(Restaurants.lat, Restaurants.lng);
                 var ArtworkCDN = "http://AHHAPI.deltacode.co/backend/images/";
                 var hhIcon = ArtworkCDN + "red-dot.png";
-                if (Restaurants.ToNextHour <= 1) {
+                if (Restaurants.ToNextHour == "green") {
                     hhIcon = ArtworkCDN + "green-dot.png";
                 }
-                else if (Restaurants.ToNextHour > 1 && Restaurants.ToNextHour <= 1380) {
+                else if (Restaurants.ToNextHour == "yellow") {
                     hhIcon = ArtworkCDN + "yellow-dot.png";
                 }
                 var marker = new google.maps.Marker({

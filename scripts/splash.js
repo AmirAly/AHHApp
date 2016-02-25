@@ -2,6 +2,7 @@
 
 var _facebookId;
 var _fullName;
+var _email;
 var currentUser = localStorage.getItem('userObject');
 $(document).ready(function () {
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
@@ -10,35 +11,36 @@ $(document).ready(function () {
         onDeviceReady();
     }
 });
-function onDeviceReady()
-{
-    openFB.init({ appId: 525906100896967 });
+function onDeviceReady() {
+    if (window.cordova.platformId == "browser")
+        facebookConnectPlugin.browserInit({ appId: 525906100896967 });
     $('#loginDv').delay(500).fadeIn(500);
     console.log(currentUser);
     if (currentUser == null || typeof currentUser == undefined) {
     }
-    else
-    {
+    else {
         navigateTo('home.html');
     }
 }
 function login() {
-    openFB.login(
+    facebookConnectPlugin.login(
             function (response) {
                 if (response.status === 'connected') {
                     console.log('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
                     // get info
-                    openFB.api({
+                    facebookConnectPlugin.api({
                         path: '/me',
                         success: function (data) {
                             console.log(JSON.stringify(data));
                             _facebookId = data.id;
                             _fullName = data.name;
+                            _email = data.email;// data.email;
                             var _Url = APILink + '/api/Users/FaceBookLogin';
                             var _Type = "post";
                             var _Data = JSON.stringify({
                                 'FacebookId': _facebookId,
-                                'FullName': _fullName
+                                'FullName': _fullName,
+                                'Email': _email
                             });
                             CallAPI(_Url, _Type, _Data, function (data) {
                                 if (data.Code == 100) {

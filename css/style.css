@@ -343,6 +343,16 @@ ul {
     }
 }
 
+@media(max-width:1025px) {
+    .sidebar-nav {
+        width: 100%;
+    }
+
+    #sidebar-wrapper {
+        width: 100%;
+    }
+
+}
 #txtAddReview {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;

@@ -17,13 +17,38 @@ $(".glyBack").click(function () {
 });
 var restaurantId;
 var GPS = false;
+// Listen for resize changes
+function checkWindowSize() {
+    var dvHeight = window.innerHeight;
+    if (dvHeight >= 768) {
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 2 / 3 + 'px;');
+    }
+    else if (dvHeight >= 480) {
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 3 + 'px;');
+    }
+    else if (dvHeight >= 320) {
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 5 + 'px;');
+    }
+    else {
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 4 + 'px;');
+    }
+}
+
+window.addEventListener("resize", function () {
+    // Get screen size (inner/outerWidth, inner/outerHeight)
+    checkWindowSize();
+
+}, false);
+
 $(document).ready(function () {
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
-        document.addEventListener("deviceready",     Init(true), false);
+        document.addEventListener("deviceready", Init(true), false);
     } else {
         Init(true);
     }
+    checkWindowSize();
 });
+
 function Init(checkParam) {
     var Id = getParameterByName("id");
     if (Id != "" && checkParam == true) {
@@ -87,8 +112,9 @@ function loadAllRestaurants(_lat, _lng) {
         InitSideBar();
         if (data.Code == 100) {
             $('#dvSort').empty();
-            console.log(data);
+            //console.log(data);
             $.each(data.Data, function (index, Restaurants) {
+                console.log(Restaurants);
                 var distance = "";
                 var distkm = Restaurants.CurrentDistance / 1000;
                 if (Restaurants.CurrentDistance > 1000)
@@ -96,13 +122,13 @@ function loadAllRestaurants(_lat, _lng) {
                 else
                     distance = Math.round(Restaurants.CurrentDistance) + " M";
                 var light = "NotNow";
-                if (Restaurants.ToNextHour <= 1)
-                {
+                if (Restaurants.ToNextHour == "green") {
                     light = "Open";
                 }
-                else if (Restaurants.ToNextHour > 1 && Restaurants.ToNextHour <1380) {
+                else if (Restaurants.ToNextHour == "yellow") {
                     light = "Soon";
                 }
+
                 $('#dvSort').append('<div class="col-md-12 col-sm-12 col-xs-12 adjustRestaurant sortable" \
                     data-gps-sorting="' + Restaurants.CurrentDistance + '"\
                     data-name-sorting="' + index + '" \
@@ -131,7 +157,7 @@ function loadAllRestaurants(_lat, _lng) {
                     //    $('#star' + increase + Restaurants.Id).removeClass('glyphicon-star-empty lightGray').addClass('glyphicon-star yellowStar');
                     //}
                     for (var i = 1; i <= Restaurants.AvgRate; i++) {
-                        $('#star' + + i + Restaurants.Id).removeClass('glyphicon-star-empty lightGray').addClass('glyphicon-star yellowStar');
+                        $('#star' + +i + Restaurants.Id).removeClass('glyphicon-star-empty lightGray').addClass('glyphicon-star yellowStar');
                         if (i + .5 == Restaurants.AvgRate) {
                             var next = i + 1;
                             $('#star' + next + Restaurants.Id).removeClass('glyphicon glyphicon-star-empty lightGray').html('<img src="images/half.png" class="half" />');
@@ -212,8 +238,7 @@ function showRestaurant(id) {
                     resetAvgRate();
                     for (var i = 1; i <= data.Data.AvgRate; i++) {
                         $('#star' + i).removeClass('glyphicon-star-empty lightGray').addClass('glyphicon-star yellowStar');
-                        if(i+.5 == data.Data.AvgRate)
-                        {
+                        if (i + .5 == data.Data.AvgRate) {
                             var next = i + 1;
                             $('#star' + next).removeClass('glyphicon glyphicon-star-empty lightGray').html('<img src="images/half.png" class="half2" />');
                         }
@@ -233,7 +258,7 @@ function showRestaurant(id) {
                 if (data.Data.ToNextHourReview != null && data.Data.ToNextHourReview != "") {
                     for (var i = 0 ; i < data.Data.NextHappyHour.length; i++) {
                         $('#spnHappyHour').append(
-                            "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] +":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
+                            "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
                             " to " + data.Data.NextHappyHour[i].HourEnd.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourEnd.split(':')[1] +
                             " - " + data.Data.NextHappyHour[i].Descreption +
                             "</p>"
