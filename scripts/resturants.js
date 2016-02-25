@@ -34,7 +34,7 @@ $("#allRestaurantDv").click(function () {
 function markResturants() {
     var _Url = APILink + '/api/Restaurants/ListRestaurants';
     var _Type = "get";
-    var _Data = { '_Index': 1000000, '_limit': 10, '_OrderBy': "Name","_lat":52.36,"_lng":4.89 }; // AvgRate , Name ,Geolocation
+    var _Data = { '_Index': 1000000, '_limit': 10, '_OrderBy': "Name", "_lat": 52.369983, "_lng": 4.894827 }; // AvgRate , Name ,Geolocation
     CallAPI(_Url, _Type, _Data, function (data) {
         if (data.Code == 100) {
             console.log(data.Data);

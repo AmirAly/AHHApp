@@ -27,7 +27,7 @@ function login() {
 function facebook_OnSuccess(response) {
     if (response.status === 'connected') {
         // get info
-        openFB.api({
+        facebookConnectPlugin.api({
             path: '/me',
             success: function (data) {
                 console.log(JSON.stringify(data));

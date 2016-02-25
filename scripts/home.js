@@ -258,7 +258,7 @@ function showRestaurant(id) {
                     $('#imgModalRestaurent').prop('src', data.Data.Logo);
                 }
                 $('#spnHappyHour').text("");
-                if (data.Data.ToNextHourReview != null && data.Data.ToNextHourReview != "") {
+                //if (data.Data.ToNextHourReview != null && data.Data.ToNextHourReview != "") {
                     for (var i = 0 ; i < data.Data.NextHappyHour.length; i++) {
                         $('#spnHappyHour').append(
                             "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
@@ -267,7 +267,7 @@ function showRestaurant(id) {
                             "</p>"
                             );
                     }
-                }
+                //}
                 if (data.Data.FaceBookLink != null) {
                     $('#lnkFacebookPage').show();
                     $('#lnkFacebookPage').prop('href', data.Data.FaceBookLink);
