@@ -112,9 +112,9 @@ function loadAllRestaurants(_lat, _lng) {
         InitSideBar();
         if (data.Code == 100) {
             $('#dvSort').empty();
-            ////console.log(data);
+            //console.log(data);
             $.each(data.Data, function (index, Restaurants) {
-                //console.log(Restaurants);
+                console.log(Restaurants);
                 var distance = "";
                 var distkm = Restaurants.CurrentDistance / 1000;
                 if (Restaurants.CurrentDistance > 1000)
@@ -122,17 +122,20 @@ function loadAllRestaurants(_lat, _lng) {
                 else
                     distance = Math.round(Restaurants.CurrentDistance) + " M";
                 var light = "NotNow";
+                var order = 3;
                 if (Restaurants.ToNextHour == "green") {
                     light = "Open";
+                    order = 1;
                 }
                 else if (Restaurants.ToNextHour == "yellow") {
                     light = "Soon";
+                    order = 2;
                 }
 
                 $('#dvSort').append('<div class="col-md-12 col-sm-12 col-xs-12 adjustRestaurant sortable" \
                     data-gps-sorting="' + Restaurants.CurrentDistance + '"\
                     data-name-sorting="' + index + '" \
-                    data-hh-sorting="' + Restaurants.ToNextHour + '" \
+                    data-hh-sorting="' + order + '" \
                     data-rate-sorting="' + Restaurants.AvgRate + '" \
                     onclick="showRestaurant(' + Restaurants.Id + ')">\
                             <!--two lines-->\
@@ -176,7 +179,7 @@ function loadAllRestaurants(_lat, _lng) {
             TourNow();
         }
         else {
-            //console.log(data);
+            console.log(data);
         }
     }, false);
 }
@@ -200,10 +203,10 @@ function showRestaurant(id) {
         var _Data = { '_Id': restaurantId };
         CallAPI(_Url, _Type, _Data, function (data) {
             if (data.Code >= 100) {
-                if (data.Data.ToNextHour <= 1) {
+                if (data.Data.ToNextHour == "green") {
                     $('#imgGreen').attr('src', 'images/green.png');
                 }
-                else if (data.Data.ToNextHour > 1 && data.Data.ToNextHour <= 1380) {
+                else if (data.Data.ToNextHour == "yellow") {
                     $('#imgGreen').attr('src', 'images/yellow.png');
                 }
                 else {
@@ -412,7 +415,7 @@ $('#rating-input').on('rating.change', function () {
             }
         }
         else {
-            //console.log(data.Code);
+            console.log(data.Code);
         }
     }, false);
 
@@ -461,7 +464,7 @@ function addReview() {
                 $('#txtAddReview').val("");
             }
             else {
-                //console.log(data.Code);
+                console.log(data.Code);
             }
         }, false);
     }
