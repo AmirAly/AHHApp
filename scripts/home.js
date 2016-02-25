@@ -44,6 +44,7 @@ $(document).ready(function () {
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
         document.addEventListener("deviceready", Init(true), false);
     } else {
+        alert('Init Call');
         Init(true);
     }
     checkWindowSize();
@@ -51,6 +52,7 @@ $(document).ready(function () {
 
 function Init(checkParam) {
     var Id = getParameterByName("id");
+    alert('Id' + Id);
     if (Id != "" && checkParam == true) {
         showRestaurant(Id);
         return;
@@ -105,6 +107,8 @@ function TourNow() {
     }
 }
 function loadAllRestaurants(_lat, _lng) {
+    alert(_lat);
+    alert(_lng);
     var _Url = APILink + '/api/Restaurants/ListRestaurants';
     var _Type = "get";
     var _Data = { '_Index': 1000000, '_limit': 100, '_OrderBy': "Name", "_lat": _lat, "_lng": _lng }; // AvgRate , Name ,Geolocation
