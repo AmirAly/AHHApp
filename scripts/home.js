@@ -112,9 +112,9 @@ function loadAllRestaurants(_lat, _lng) {
         InitSideBar();
         if (data.Code == 100) {
             $('#dvSort').empty();
-            //console.log(data);
+            ////console.log(data);
             $.each(data.Data, function (index, Restaurants) {
-                console.log(Restaurants);
+                //console.log(Restaurants);
                 var distance = "";
                 var distkm = Restaurants.CurrentDistance / 1000;
                 if (Restaurants.CurrentDistance > 1000)
@@ -176,7 +176,7 @@ function loadAllRestaurants(_lat, _lng) {
             TourNow();
         }
         else {
-            console.log(data);
+            //console.log(data);
         }
     }, false);
 }
@@ -412,7 +412,7 @@ $('#rating-input').on('rating.change', function () {
             }
         }
         else {
-            console.log(data.Code);
+            //console.log(data.Code);
         }
     }, false);
 
@@ -461,7 +461,7 @@ function addReview() {
                 $('#txtAddReview').val("");
             }
             else {
-                console.log(data.Code);
+                //console.log(data.Code);
             }
         }, false);
     }
