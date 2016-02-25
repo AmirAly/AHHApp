@@ -30,7 +30,7 @@ function facebook_OnSuccess(response) {
         facebookConnectPlugin.api({
             path: '/me',
             success: function (data) {
-                console.log(JSON.stringify(data));
+                alert(JSON.stringify(data));
                 _facebookId = data.id;
                 _fullName = data.name;
                 _email = data.email;
