@@ -101,10 +101,6 @@ $(document).on("mouseup touchend", function (e) {
         $("#menuDv").click();
     }
 });
-jQuery(document).on("mobileinit", function () {
-    jQuery.mobile.autoInitializePage = false;
-});
-
 function CallAPI(_url, _type, _data, onsuccess, cashed) {
     $.ajax({
         url: _url,

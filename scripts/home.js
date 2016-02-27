@@ -21,16 +21,16 @@ var GPS = false;
 function checkWindowSize() {
     var dvHeight = window.innerHeight;
     if (dvHeight >= 768) {
-        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 2 / 3 + 'px;');
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 4 / 6 + 'px;');
     }
     else if (dvHeight >= 480) {
-        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 3 + 'px;');
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 2 / 4 + 'px;');
     }
     else if (dvHeight >= 320) {
-        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 5 + 'px;');
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 3 + 'px;');
     }
     else {
-        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 4 + 'px;');
+        $('.dvScroll').attr('style', 'max-height: ' + dvHeight * 1 / 3 + 'px;');
     }
 }
 
@@ -55,8 +55,7 @@ function Init(checkParam) {
         showRestaurant(Id);
         return;
     }
-    loadAllRestaurants(0, 0);
-    var options = { enableHighAccuracy: true,timeout:1000 };
+    var options = { enableHighAccuracy: true, timeout: 1000 };
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
             alert('GEO');
@@ -64,10 +63,10 @@ function Init(checkParam) {
             loadAllRestaurants(pos.coords.latitude, pos.coords.longitude);
         }, function (err) {
             loadAllRestaurants(0, 0);
-        },options);
+        }, options);
     } else {
         $(".restaurantDescription").text("Error getting your location");
-        //loadAllRestaurants(0, 0);
+        loadAllRestaurants(0, 0);
     }
 }
 function TourNow() {
@@ -233,8 +232,11 @@ function showRestaurant(id) {
                 }
                 $('#lnkWebsite').hide();
                 if (data.Data.WebsiteLink != null) {
+                    if (data.Data.WebsiteLink.indexOf('http') < 0)
+                        data.Data.WebsiteLink = 'http://' + data.Data.WebsiteLink;
                     $('#lnkWebsite').text(data.Data.WebsiteLink);
                     $('#lnkWebsite').prop('href', data.Data.WebsiteLink);
+                    $('#lnkWebsite').prop('_target', 'blank');
                     $('#lnkWebsite').show();
                 }
                 if (data.Data.AvgRate != null || data.Data.AvgRate != 0) {
@@ -259,14 +261,14 @@ function showRestaurant(id) {
                 }
                 $('#spnHappyHour').text("");
                 //if (data.Data.ToNextHourReview != null && data.Data.ToNextHourReview != "") {
-                    for (var i = 0 ; i < data.Data.NextHappyHour.length; i++) {
-                        $('#spnHappyHour').append(
-                            "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
-                            " to " + data.Data.NextHappyHour[i].HourEnd.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourEnd.split(':')[1] +
-                            " - " + data.Data.NextHappyHour[i].Descreption +
-                            "</p>"
-                            );
-                    }
+                for (var i = 0 ; i < data.Data.NextHappyHour.length; i++) {
+                    $('#spnHappyHour').append(
+                        "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
+                        " to " + data.Data.NextHappyHour[i].HourEnd.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourEnd.split(':')[1] +
+                        " - " + data.Data.NextHappyHour[i].Descreption +
+                        "</p>"
+                        );
+                }
                 //}
                 if (data.Data.FaceBookLink != null) {
                     $('#lnkFacebookPage').show();
