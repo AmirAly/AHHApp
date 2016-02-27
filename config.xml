@@ -31,7 +31,7 @@
 	<feature name="http://api.phonegap.com/1.0/notification"/>
 
 	<!-- Customize your app and platform with the preference element. -->
-	<preference name="phonegap-version"           value="cli-5.2.0" />
+	<preference name="phonegap-version"           value="3.7.0" />
 	<!-- all: current version of PhoneGap -->
 	<preference name="orientation"                value="portrait" />
 	<!-- all: default means both landscape and portrait are enabled -->
@@ -88,13 +88,6 @@
 		<param name="APP_ID" value="525906100896967" />
 		<param name="APP_NAME" value="Amsterdam Happy Hours" />
 	</gap:plugin>
-	<!-- Third party plugins -->
-	<!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-	<!--
-        <gap:plugin name="com.phonegap.plugins.barcodescanner" />
-    -->
-
-	<!-- Define app icon for each platform. -->
 	<icon src="icon.png" />
 	<icon src="www/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
 	<icon src="www/res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
