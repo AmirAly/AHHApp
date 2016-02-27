@@ -55,7 +55,7 @@ function Init(checkParam) {
         showRestaurant(Id);
         return;
     }
-    var options = { enableHighAccuracy: true, timeout: 1000 };
+    var options = { enableHighAccuracy: true, timeout: 20000 };
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
             alert('GEO');
