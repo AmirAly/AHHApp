@@ -26,47 +26,38 @@ function login() {
 }
 function facebook_OnSuccess(response) {
     var userFB = response.authResponse;
-    if (userFB.status === 'connected') {
+    console.log(response);
+    if (response.status === 'connected') {
         // get info
         facebookConnectPlugin.api(userFB.userID + "/?fields=id,email,name", ["user_birthday"],
     function (result) {
-        alert("Result: " + JSON.stringify(result));
+        _facebookId = result.id;
+        _fullName = result.name;
+        _email = result.email;
+        var _Url = APILink + '/api/Users/FaceBookLogin';
+        var _Type = "post";
+        var _Data = JSON.stringify({
+            'FacebookId': _facebookId,
+            'FullName': _fullName,
+            'Email': _email
+        });
+        CallAPI(_Url, _Type, _Data, function (data) {
+            if (data.Code == 100) {
+                localStorage.setItem('userObject', JSON.stringify({
+                    'Id': data.Data.Id,
+                    'FullName': data.Data.FullName,
+                    'Status': '0'
+                }));
+                navigateTo('home.html');
+            }
+            else {
+                $('#dvMessage').addClass('show').removeClass('hidden');
+            }
+        }, false);
     },
     function (error) {
         alert("Failed: " + error);
     });
-        facebookConnectPlugin.api({
-            path: '/me',
-            success: function (data) {
-                alert(JSON.stringify(data));
-                _facebookId = data.id;
-                _fullName = data.name;
-                _email = data.email;
-                var _Url = APILink + '/api/Users/FaceBookLogin';
-                var _Type = "post";
-                var _Data = JSON.stringify({
-                    'FacebookId': _facebookId,
-                    'FullName': _fullName,
-                    'Email': _email
-                });
-                CallAPI(_Url, _Type, _Data, function (data) {
-                    if (data.Code == 100) {
-                        localStorage.setItem('userObject', JSON.stringify({
-                            'Id': data.Data.Id,
-                            'FullName': data.Data.FullName,
-                            'Status': '0'
-                        }));
-                        navigateTo('home.html');
-                    }
-                    else {
-                        $('#dvMessage').addClass('show').removeClass('hidden');
-                    }
-                }, false);
-            },
-            error: function errorHandler(error) {
-                console.log(error.message);
-            }
-        });
     }
     else {
         console.log('Facebook login failed: ' + response.error);
