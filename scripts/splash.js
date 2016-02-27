@@ -25,10 +25,16 @@ function login() {
     facebookConnectPlugin.login(['email'], facebook_OnSuccess);
 }
 function facebook_OnSuccess(response) {
-    alert('IM Happy');
-    alert(JSON.stringify(response));
-    if (response.status === 'connected') {
+    var userFB = response.authResponse;
+    if (userFB.status === 'connected') {
         // get info
+        facebookConnectPlugin.api(userFB.userID + "/?fields=id,email,name", ["user_birthday"],
+    function (result) {
+        alert("Result: " + JSON.stringify(result));
+    },
+    function (error) {
+        alert("Failed: " + error);
+    });
         facebookConnectPlugin.api({
             path: '/me',
             success: function (data) {
