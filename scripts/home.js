@@ -55,13 +55,15 @@ function Init(checkParam) {
         showRestaurant(Id);
         return;
     }
-    var options = { enableHighAccuracy: true, timeout: 20000 };
+    loadAllRestaurants(0, 0);
+    var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
             alert('GEO');
             GPS = true;
             loadAllRestaurants(pos.coords.latitude, pos.coords.longitude);
         }, function (err) {
+            $(".restaurantDescription").text("Error getting your location");
             loadAllRestaurants(0, 0);
         }, options);
     } else {
