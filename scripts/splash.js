@@ -25,6 +25,8 @@ function login() {
     facebookConnectPlugin.login(['email'], facebook_OnSuccess);
 }
 function facebook_OnSuccess(response) {
+    alert('IM Happy');
+    alert(JSON.stringify(response));
     if (response.status === 'connected') {
         // get info
         facebookConnectPlugin.api({
