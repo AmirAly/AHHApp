@@ -58,6 +58,7 @@ function Init(checkParam) {
     loadAllRestaurants(0, 0);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
+            alert('GEO');
             GPS = true;
             loadAllRestaurants(pos.coords.latitude, pos.coords.longitude);
         }, function (err) {
@@ -112,7 +113,6 @@ function loadAllRestaurants(_lat, _lng) {
         InitSideBar();
         if (data.Code == 100) {
             $('#dvSort').empty();
-            //console.log(data);
             $.each(data.Data, function (index, Restaurants) {
                 console.log(Restaurants);
                 var distance = "";
