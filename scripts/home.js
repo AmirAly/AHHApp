@@ -56,6 +56,7 @@ function Init(checkParam) {
         return;
     }
     loadAllRestaurants(0, 0);
+    var options = { enableHighAccuracy: true,timeout:1000 };
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
             alert('GEO');
@@ -63,9 +64,10 @@ function Init(checkParam) {
             loadAllRestaurants(pos.coords.latitude, pos.coords.longitude);
         }, function (err) {
             loadAllRestaurants(0, 0);
-        });
+        },options);
     } else {
-        loadAllRestaurants(0, 0);
+        $(".restaurantDescription").text("Error getting your location");
+        //loadAllRestaurants(0, 0);
     }
 }
 function TourNow() {
