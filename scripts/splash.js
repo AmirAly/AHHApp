@@ -56,7 +56,7 @@ function facebook_OnSuccess(response) {
         }, false);
     },
     function (error) {
-        alert("Failed: " + error);
+        //alert("Failed: " + error);
     });
     }
     else {

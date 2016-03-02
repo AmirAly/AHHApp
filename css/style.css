@@ -409,3 +409,6 @@ ul {
     /*color: #C72127;*/
     line-height: 1.6;
 }
+div#page-content-wrapper{
+    position: absolute !important;
+}

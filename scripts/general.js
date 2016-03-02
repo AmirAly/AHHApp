@@ -64,21 +64,22 @@ $("#allRestaurantDv").click(function () {
 $("#locationDv").click(function () {
     navigateTo("resturants.html");
 });
-$("#menuDv").click(function (e) {
+$(".toggleMenu").click(function (e) {
     e.preventDefault();
     hidden = !hidden;
     if (hidden == true) {
-        $("#page-content-wrapper").toggle();
+       // $("#page-content-wrapper").toggle();
         $("#wrapper").toggleClass("toggled");
         $('#sidebar-wrapper').css('border-left', 'solid 5px  #a73135')
 
     }
     else {
         $("#wrapper").toggleClass("toggled");
-        setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
+       // setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
         $('#sidebar-wrapper').css('border-left', 'none 5px  #a73135')
     }
 });
+
 var _start;
 var _end;
 $(document).on("mousedown touchstart", function (e) {
@@ -91,14 +92,14 @@ $(document).on("mouseup touchend", function (e) {
         if (hidden === true) {
             hidden = !hidden;
             $("#wrapper").toggleClass("toggled");
-            setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
+            //setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
             $('#sidebar-wrapper').css('border-left', 'none 5px  #a73135')
 
         }
     }
     if(_start - _end > 50)
     {
-        $("#menuDv").click();
+        $(".toggleMenu").click();
     }
 });
 function CallAPI(_url, _type, _data, onsuccess, cashed) {
