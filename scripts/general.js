@@ -33,8 +33,8 @@ function InitSideBar() {
                                      </li>');
             });
             $('.sidebar-nav').append('\
-                                    <li>\
-                                    <a href="javascript:signout();"> <span style="color:#ff24499" class="glyphicon glyphicon-user"></span> Sign Out</a>\
+                                    <li onclick="signout()">\
+                                    <a> <span style="color:#ff24499" class="glyphicon glyphicon-user"></span> Sign Out</a>\
                                      </li>');
         }
     }, false);
@@ -42,6 +42,7 @@ function InitSideBar() {
 function signout()
 {
     localStorage.clear();
+    console.log('signed out');
     location.href = "index.html";
 }
 function sortAscendeing(_commonClass, _attribute, _container) {
