@@ -59,7 +59,6 @@ function Init(checkParam) {
     var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
-            //alert('GEO');
             GPS = true;
             loadAllRestaurants(pos.coords.latitude, pos.coords.longitude);
         }, function (err) {
