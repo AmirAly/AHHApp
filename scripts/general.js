@@ -83,12 +83,15 @@ $(".toggleMenu").click(function (e) {
 
 var _start;
 var _end;
-$(document).on("mousedown touchstart", function (e) {
-    _start = e.pageX;
+$(document).on("touchmove", function (e) {
+    _end = e;
 });
-$(document).on("mouseup touchend", function (e) {
-    _end = e.pageX;
-    if(_end - _start > 50)
+$(document).on("touchstart", function (e) {
+    _start = e.originalEvent.touches[0].clientX;
+});
+$(document).on("touchend", function (e) {
+    _end = _end.originalEvent.touches[0].clientX;
+    if(_end - _start > 30)
     {
         if (hidden === true) {
             hidden = !hidden;
@@ -98,7 +101,7 @@ $(document).on("mouseup touchend", function (e) {
 
         }
     }
-    if(_start - _end > 50)
+    if(_start - _end > 30)
     {
         $(".toggleMenu").click();
     }
