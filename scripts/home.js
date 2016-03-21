@@ -263,12 +263,12 @@ function showRestaurant(id) {
                 $('#spnHappyHour').text("");
                 //if (data.Data.ToNextHourReview != null && data.Data.ToNextHourReview != "") {
                 for (var i = 0 ; i < data.Data.NextHappyHour.length; i++) {
-                    $('#spnHappyHour').append(
+                    $('#spnHappyHour').append((
                         "<p>" + data.Data.NextHappyHour[i].HourStart.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourStart.split(':')[1] +
                         " to " + data.Data.NextHappyHour[i].HourEnd.split(':')[0] + ":" + data.Data.NextHappyHour[i].HourEnd.split(':')[1] +
                         " - " + data.Data.NextHappyHour[i].Descreption +
                         "</p>"
-                        );
+                        ).replace("23:59"," Midnight"));
                 }
                 //}
                 if (data.Data.FaceBookLink != null) {

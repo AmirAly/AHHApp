@@ -5,7 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "co.deltacode.ahh"
         version   = "1.7.0"
-		versionCode="326">
+		versionCode="327">
 
 	<name>Amsterdam Happy Hours</name>
 

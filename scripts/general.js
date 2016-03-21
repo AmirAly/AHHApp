@@ -81,31 +81,31 @@ $(".toggleMenu").click(function (e) {
     }
 });
 
-//var _start;
-//var _end;
-//$(document).on("touchmove", function (e) {
-//    _end = e;
-//});
-//$(document).on("touchstart", function (e) {
-//    _start = e.originalEvent.touches[0].clientX;
-//});
-//$(document).on("touchend", function (e) {
-//    _end = _end.originalEvent.touches[0].clientX;
-//    if(_end - _start > 30)
-//    {
-//        if (hidden === true) {
-//            hidden = !hidden;
-//            $("#wrapper").toggleClass("toggled");
-//            //setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
-//            $('#sidebar-wrapper').css('border-left', 'none 5px  #a73135')
+var _start;
+var _end;
+$(document).on("touchmove", function (e) {
+    _end = e;
+});
+$(document).on("touchstart", function (e) {
+    _start = e.originalEvent.touches[0].clientX;
+});
+$(document).on("touchend", function (e) {
+    _end = _end.originalEvent.touches[0].clientX;
+    if(_end - _start > 30)
+    {
+        if (hidden === true) {
+            hidden = !hidden;
+            $("#wrapper").toggleClass("toggled");
+            //setTimeout(function () { $("#page-content-wrapper").toggle(); }, 200);
+            $('#sidebar-wrapper').css('border-left', 'none 5px  #a73135')
 
-//        }
-//    }
-//    if(_start - _end > 30)
-//    {
-//        $(".toggleMenu").click();
-//    }
-//});
+        }
+    }
+    if(_start - _end > 30)
+    {
+        $(".toggleMenu").click();
+    }
+});
 function CallAPI(_url, _type, _data, onsuccess, cashed) {
     $.ajax({
         url: _url,
