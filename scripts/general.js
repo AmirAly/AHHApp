@@ -91,7 +91,7 @@ $(document).on("touchstart", function (e) {
 });
 $(document).on("touchend", function (e) {
     _end = _end.originalEvent.touches[0].clientX;
-    if(_end - _start > 30)
+    if(_end - _start > 100)
     {
         if (hidden === true) {
             hidden = !hidden;
@@ -101,7 +101,7 @@ $(document).on("touchend", function (e) {
 
         }
     }
-    if(_start - _end > 30)
+    if(_start - _end > 100)
     {
         $(".toggleMenu").click();
     }
