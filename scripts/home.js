@@ -224,7 +224,7 @@ function showRestaurant(id) {
                 }
                 if (GPS == true) {
                     $('#pGPS').remove();
-                    $('#lnkFindRestaurant').attr('href', 'javascript:navigateTo(\'findme.html?restaurantId=' + data.Data.Id + '&lat=' + data.Data.lat + '&lng=' + data.Data.lng + '\')');
+                    $('#lnkFindRestaurant').attr('href', 'javascript:navigateTo(\'video_ads.html?restaurantId=' + data.Data.Id + '&lat=' + data.Data.lat + '&lng=' + data.Data.lng + '\')');
                 }
                 else {
                     $('#lnkFindRestaurant').attr('disabled', 'disabled');
